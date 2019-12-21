@@ -2,6 +2,7 @@ package thread_05;
 
 public class Test_ThreadLocal {
 
+	@SuppressWarnings("unused")
 	private String name;
 	Test_ThreadLocal(String name) {
 		this.name = name;

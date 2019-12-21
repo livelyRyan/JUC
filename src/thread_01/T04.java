@@ -6,6 +6,7 @@ package thread_01;
 */
 public class T04 {
 
+	@SuppressWarnings("null")
 	public static void main(String[] args) {
 
 		Object o = null;

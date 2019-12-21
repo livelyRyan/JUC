@@ -8,7 +8,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Test_ReadWriteLock {
     static Lock lock = new ReentrantLock();
-    private static int value;
+    @SuppressWarnings("unused")
+	private static int value;
 
     static ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     static Lock readLock = readWriteLock.readLock();

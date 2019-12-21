@@ -16,6 +16,7 @@ public class SoftRef {
 		System.gc();
 		System.out.println(ref.get());
 		// 再分配一个数组，heap将装不下，这时候系统会垃圾回收，先回收一次，如果不够，会把软引用干掉
+		@SuppressWarnings("unused")
 		byte[] b = new byte[1024*1024*11];
         System.out.println(ref.get());
 	}

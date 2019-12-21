@@ -7,10 +7,9 @@ import java.util.concurrent.Semaphore;
  * 当前实现存在一些问题未解决： 
  * 		t1.acquire()可能在t2.acquire()后面执行；
  * 		t1.release()的时候，t2不一定执行了acquire();
- *       因此用semaphore并不是一个好选择
+ *       因此用semaphore并不算是一个可行的事情
 */
-public class V3_Semaphore {
-	
+public class V3_Semaphore_Not_Work {
 	static String a = "abcdefgh";
 	static String b = "12345678";
 	static Thread t1, t2 = null;
@@ -18,8 +17,7 @@ public class V3_Semaphore {
 	static Semaphore semaphore = new Semaphore(1, true);
 	
 	public static void main(String[] args) {
-		
-		
+
 		t1 = new Thread(() ->{
 			for (char c : a.toCharArray()) {
 				try {
@@ -47,11 +45,6 @@ public class V3_Semaphore {
 		});
 		
 		t1.start();
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		t2.start();
 	}
 
